@@ -4,6 +4,8 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+import com.sathish.webhook.chatbot.ChatBotIntent;
+
 public class MainHandler {
 	String request;
 	public MainHandler(String request) {
@@ -24,7 +26,7 @@ public class MainHandler {
 			
 			String queryText = text.toLowerCase();
 			
-			if(queryText.contains("pbx") || queryText.contains("number") || queryText.contains("no")){
+			/*if(queryText.contains("pbx") || queryText.contains("number") || queryText.contains("no")){
 				PbxHandler pbxHandler = new PbxHandler(queryText);
 				return pbxHandler.process();
 			}else if(queryText.contains("time")){
@@ -33,7 +35,9 @@ public class MainHandler {
 			}else if(queryText.contains("date")){
 				DateHandler dateHandler= new DateHandler(queryText);
 				return dateHandler.process();
-			}
+			}*/
+			ChatBotIntent chatBotIntent = new ChatBotIntent(text, from);
+			return chatBotIntent.process();
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

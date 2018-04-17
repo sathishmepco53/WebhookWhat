@@ -41,8 +41,8 @@ public class ChatBotIntent {
 		}
 		try{
 				OutputMessage outputMessage = gson.fromJson(outputJson, OutputMessage.class);
-				//outputContentToWhatsapp = outputMessage.getMessageText()[0]+"\n";\
-				outputContentToWhatsapp = outputMessage.getMessageText().get(0)[0]+"\n";
+				outputContentToWhatsapp = outputMessage.getMessageText()[0]+"\n";
+//				outputContentToWhatsapp = outputMessage.getMessageText().get(0)[0]+"\n";
 				if(outputMessage.getPlugin() != null && outputMessage.getPlugin().getData() != null && outputMessage.getPlugin().getData().length >0){
 					for(String str : outputMessage.getPlugin().getData())
 						outputContentToWhatsapp = outputContentToWhatsapp + "\n - "+str;

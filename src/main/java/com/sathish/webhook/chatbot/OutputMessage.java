@@ -9,8 +9,8 @@ import java.util.ArrayList;
 public class OutputMessage {
 
     private String messageSource;
-//    private String[] messageText;
-    private ArrayList<String[]> messageText;
+    private String[] messageText;
+//    private ArrayList<String[]> messageText;
     private String user_id;
     private String state;
     private String city;
@@ -69,20 +69,20 @@ public class OutputMessage {
         this.plugin = plugin;
     }
 
-	public ArrayList<String[]> getMessageText() {
+/*	public ArrayList<String[]> getMessageText() {
 		return messageText;
 	}
 
 	public void setMessageText(ArrayList<String[]> messageText) {
 		this.messageText = messageText;
-	}
+	}*/
     
 
- /*   public String[] getMessageText() {
+    public String[] getMessageText() {
         return messageText;
     }
 
     public void setMessageText(String[] messageText) {
         this.messageText = messageText;
-    }*/
+    }
 }

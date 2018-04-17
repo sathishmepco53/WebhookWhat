@@ -5,7 +5,7 @@ package com.sathish.webhook.chatbot;
  */
 
 public class Constants {
-    public static final String URL = "http://35.227.113.160:8080/Score";
+    public static final String URL = "http://35.229.30.162:8080/Score";
     public static final String MESSAGE_FROM_USER = "messageFromUser";
     public static final String USER_INITIATED_RESET = "userInitiatedReset";
 }

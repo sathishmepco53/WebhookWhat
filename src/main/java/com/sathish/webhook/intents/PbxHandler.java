@@ -293,17 +293,17 @@ public class PbxHandler {
 		JSONObject jsonObject = new JSONObject();
 		for(String key : pbxMap.keySet())
 			if(queryText.contains(key)){
-				jsonObject.put("fulfillmentText", "Pbx number is "+pbxMap.get(key));
+				jsonObject.put("apiwha_autoreply", "Pbx number is "+pbxMap.get(key));
 				System.out.println("Pbx Found key is : "+key);
 				System.out.println("Pbx Found no is : "+pbxMap.get(key));
 				return jsonObject.toString();
 			}
-		return defaultMessage();
+		return defaultMessage("Sorry I didn\'t get you!");
 	}
 	
-	private String defaultMessage(){
+	private String defaultMessage(String message){
 		JSONObject jsonObject = new JSONObject();
-		jsonObject.put("fulfillmentText", "Sorry I didn\'t get you!");
+		jsonObject.put("apiwha_autoreply", message);
 		return jsonObject.toString();
 	}
 

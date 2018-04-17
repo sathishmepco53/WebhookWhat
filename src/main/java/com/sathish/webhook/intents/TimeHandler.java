@@ -24,7 +24,7 @@ public class TimeHandler {
 			time = time.replace("00", "12");
 		else if(time.trim().startsWith("0"))
 			time = time.replace("0", "\\s");
-		jsonObject.put("fulfillmentText", time);
+		jsonObject.put("apiwha_autoreply", time);
 		return jsonObject.toString();
 	}
 }

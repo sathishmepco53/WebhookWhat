@@ -16,14 +16,13 @@ public class MainHandler {
 		JSONObject jsonObject;
 		try {
 			jsonObject = (JSONObject) jsonParser.parse(request);
-			JSONObject queryResultObj = (JSONObject) jsonObject.get("queryResult");
 			
-			String queryText = (String) queryResultObj.get("queryText");
-			queryText = queryText.toLowerCase();
-			String action = (String) queryResultObj.get("action");
-			System.out.println("Query Text is : "+queryText);
-			System.out.println("Action is : "+action);
-			JSONObject parameterElt = (JSONObject) queryResultObj.get("parameters");
+			String event = (String) jsonObject.get("event");
+			String from = (String)jsonObject.get("from");
+			String to  = (String) jsonObject.get("to");
+			String text = (String) jsonObject.get("text");
+			
+			String queryText = text.toLowerCase();
 			
 			if(queryText.contains("pbx") || queryText.contains("number") || queryText.contains("no")){
 				PbxHandler pbxHandler = new PbxHandler(queryText);
@@ -34,14 +33,7 @@ public class MainHandler {
 			}else if(queryText.contains("date")){
 				DateHandler dateHandler= new DateHandler(queryText);
 				return dateHandler.process();
-			}else if(action.toLowerCase().equals("myweather")){
-				if(parameterElt == null || parameterElt.get("geo-city") == null)
-					return defaultMessage("Please specify the city name");
-				String geoCity = (String) parameterElt.get("geo-city");
-				WeatherHandler weatherHandler = new WeatherHandler(request, geoCity);
-				return weatherHandler.process();
 			}
-			
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -51,7 +43,7 @@ public class MainHandler {
 	
 	private String defaultMessage(String message){
 		JSONObject jsonObject = new JSONObject();
-		jsonObject.put("fulfillmentText", message);
+		jsonObject.put("apiwha_autoreply", message);
 		return jsonObject.toString();
 	}
 }

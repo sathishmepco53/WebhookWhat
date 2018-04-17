@@ -53,7 +53,7 @@ public class WeatherHandler {
 
 	private String defaultMessage(String message){
 		JSONObject jsonObject = new JSONObject();
-		jsonObject.put("fulfillmentText", message);
+		jsonObject.put("apiwha_autoreply", message);
 		return jsonObject.toString();
 	}
 }

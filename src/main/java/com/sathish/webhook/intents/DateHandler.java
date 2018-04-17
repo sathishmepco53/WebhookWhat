@@ -24,7 +24,7 @@ public class DateHandler {
 		else if(queryText.contains("yesterday"))
 			calendar.add(Calendar.DAY_OF_MONTH, -1);
 		String time = sdf.format(new Date(calendar.getTimeInMillis()));
-		jsonObject.put("fulfillmentText", time);
+		jsonObject.put("apiwha_autoreply", time);
 		return jsonObject.toString();
 	}
 
